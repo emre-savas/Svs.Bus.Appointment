@@ -1,0 +1,84 @@
+version: '3.4'
+
+services:
+  svs.appointment.api:
+    image: ${DOCKER_REGISTRY-}svsappointmentapi
+    build:
+      context: .
+      dockerfile: src/Services/Svs.Appointment.Api/Dockerfile
+    networks:
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+      - redis-server
+    links:
+      - postgres
+      - rabbitmq
+      - redis-server
+
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+     POSTGRES_USER: ${POSTGRES_USER:-postgres}
+     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+     PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+     - "5432:5432"
+    networks:
+     - postgres
+    restart: always
+  
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+   
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - postgres
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  rabbitmq:
+    container_name: rabbitmq_container
+    image: rabbitmq:3.8-management-alpine
+    hostname: "rabbitmq"
+    environment:
+            - RABBITMQ_DEFAULT_USER=myuser
+            - RABBITMQ_DEFAULT_PASS=mypassword
+    ports:
+        - '5672:5672'
+            # HTTP management UI
+        - '15672:15672'
+    networks:
+     - postgres
+    volumes:
+      - rabbitmq:/data/rabbitmq
+
+  redis-server:
+    container_name: redis_container
+    image: redis
+    hostname: redis
+    ports:
+      - "6389:6379"
+
+
+networks:
+  postgres:
+     driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
+  rabbitmq:
