@@ -144,7 +144,7 @@ namespace EventBus.AzureServiceBus
 
             try
             {
-                var rule = _managementClient.GetRuleAsync(EventBusConfig.DefaultTopicName, eventName, eventName)
+                var rule = _managementClient.GetRuleAsync(EventBusConfig.DefaultTopicName, GetSubName(eventName), eventName)
                     .GetAwaiter().GetResult();
                 ruleExists = rule != null;
             }
