@@ -65,7 +65,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.UnitTest", "tests\BuildingBlocks\EventBus.UnitTest\EventBus.UnitTest.csproj", "{C03F6CE8-6170-4D59-B43E-42A8F046C146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.XUnitTest", "tests\BuildingBlocks\EventBus.XUnitTest\EventBus.XUnitTest.csproj", "{EF6CC73D-4F5A-4654-B465-52536A840E0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.XUnitTest", "tests\BuildingBlocks\EventBus.XUnitTest\EventBus.XUnitTest.csproj", "{EF6CC73D-4F5A-4654-B465-52536A840E0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogService", "CatalogService", "{0295482A-4008-4C3C-8405-F970DC137B41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Api", "src\Services\Catalog.Api\CatalogService.Api\CatalogService.Api\CatalogService.Api.csproj", "{C465A548-B8A8-4EBB-A887-EA9153B6703C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +145,10 @@ Global
 		{EF6CC73D-4F5A-4654-B465-52536A840E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF6CC73D-4F5A-4654-B465-52536A840E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF6CC73D-4F5A-4654-B465-52536A840E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C465A548-B8A8-4EBB-A887-EA9153B6703C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C465A548-B8A8-4EBB-A887-EA9153B6703C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C465A548-B8A8-4EBB-A887-EA9153B6703C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C465A548-B8A8-4EBB-A887-EA9153B6703C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,6 +183,8 @@ Global
 		{1BB35EF4-D531-4ABA-9B89-E4BE0A117F5C} = {C78C09B4-4D09-471B-AADF-B40E239CC9E5}
 		{C03F6CE8-6170-4D59-B43E-42A8F046C146} = {1BB35EF4-D531-4ABA-9B89-E4BE0A117F5C}
 		{EF6CC73D-4F5A-4654-B465-52536A840E0F} = {1BB35EF4-D531-4ABA-9B89-E4BE0A117F5C}
+		{0295482A-4008-4C3C-8405-F970DC137B41} = {A6CE4000-8D4B-4EB8-894C-D229C1FCB124}
+		{C465A548-B8A8-4EBB-A887-EA9153B6703C} = {0295482A-4008-4C3C-8405-F970DC137B41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D16DDA5-1018-40A7-8257-408F03059560}
